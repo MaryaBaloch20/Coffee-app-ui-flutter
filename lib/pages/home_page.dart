@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,8 +17,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
-        leading: Icon(Icons.menu),
-        actions: [chi],
+        leading: const Icon(Icons.menu),
+        actions: [
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: Icon(Icons.person),
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -33,6 +40,9 @@ class _HomePageState extends State<HomePage> {
             label: '',
           ),
         ],
+      ),
+      body: Column(
+        children: [],
       ),
     );
   }
