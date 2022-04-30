@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
+import 'package:coffee_appui/utils/coffee_tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,8 +18,8 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         backgroundColor: Colors.transparent,
         leading: const Icon(Icons.menu),
-        actions: [
-          const Padding(
+        actions: const [
+          Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.person),
           )
@@ -44,13 +43,51 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+          //Heading
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Text(
               "Find the best coffee for you",
-              style: GoogleFonts.bebasNeue(fontSize: 65),
+              style: GoogleFonts.bebasNeue(fontSize: 75),
             ),
           ),
+
+          const SizedBox(
+            height: 25.0,
+          ),
+
+          //Search Bar
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: TextField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(
+                  Icons.search,
+                  color: Colors.orange,
+                ),
+                hintText: 'Find your coffee...',
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade600),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade600),
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 25.0,
+          ),
+
+          //Horizontal Listview for Items
+          Expanded(
+              child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: const [
+              CoffeeTiles(),
+            ],
+          ))
         ],
       ),
     );
