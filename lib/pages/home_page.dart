@@ -1,6 +1,7 @@
 import 'package:coffee_appui/utils/coffee_tiles.dart';
 import 'package:coffee_appui/utils/coffee_types.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
     ["Latte", false],
     ["Black", false],
     ["Espresso", false],
+    ["Macchiato", false],
   ];
 
   //Tap on a coffee type to select
@@ -61,8 +63,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
+        scrollDirection: Axis.vertical,
         children: [
+          // SizedBox(
+          //   height: 15.0,
+          // ),
           //Heading
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -119,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           const SizedBox(
-            height: 25.0,
+            height: 10.0,
           ),
 
           //Horizontal Listview of coffee tiles
@@ -148,7 +154,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           const SizedBox(
-            height: 25.0,
+            height: 12.0,
           ),
 
           //Special For You
@@ -162,8 +168,99 @@ class _HomePageState extends State<HomePage> {
           ),
 
           const SizedBox(
-            height: 20,
+            height: 25,
           ),
+
+          Container(
+              height: 1000,
+              // color: Colors.red,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0, bottom: 25.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(12.0),
+                        width: 523,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.black54,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 240,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Image.asset('images/milkcoffee.jpg'),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 40.0,
+                                ),
+                                //Coffee Name
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 12.0, horizontal: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Milk Coffee',
+                                        style: TextStyle(fontSize: 35),
+                                      ),
+                                      const SizedBox(
+                                        height: 4,
+                                      ),
+                                      Text(
+                                        '  You Must Try!',
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            color: Colors.grey.shade700),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            //Price
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    '\$6.00',
+                                    style: TextStyle(fontSize: 22),
+                                  ),
+                                  //Add Icon
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      borderRadius: BorderRadius.circular(6.0),
+                                    ),
+                                    child: const Icon(Icons.add),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ))
         ],
       ),
     );
