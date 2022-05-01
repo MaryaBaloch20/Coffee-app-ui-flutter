@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           const SizedBox(
-            height: 25.0,
+            height: 30.0,
           ),
 
           //Horizontal Listview of coffee types
@@ -118,15 +118,52 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
+          const SizedBox(
+            height: 25.0,
+          ),
+
           //Horizontal Listview of coffee tiles
-          Expanded(
+          SizedBox(
+            height: 400,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
-                CoffeeTiles(),
+              children: [
+                CoffeeTiles(
+                  coffeeImagePath: 'images/cuppacino.jpg',
+                  coffeeName: 'Cuppacino',
+                  coffeePrice: '5.00',
+                ),
+                CoffeeTiles(
+                  coffeeImagePath: 'images/latte.jpg',
+                  coffeeName: 'Latte',
+                  coffeePrice: '4.90',
+                ),
+                CoffeeTiles(
+                  coffeeImagePath: 'images/milkcoffee.jpg',
+                  coffeeName: 'Milk Coffee',
+                  coffeePrice: '6.00',
+                ),
               ],
             ),
-          )
+          ),
+
+          const SizedBox(
+            height: 25.0,
+          ),
+
+          //Special For You
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+              "Special for you",
+              style: GoogleFonts.bebasNeue(fontSize: 45),
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );
