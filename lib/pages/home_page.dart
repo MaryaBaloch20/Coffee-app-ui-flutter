@@ -1,4 +1,5 @@
 import 'package:coffee_appui/utils/coffee_tiles.dart';
+import 'package:coffee_appui/utils/coffee_types.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -80,14 +81,36 @@ class _HomePageState extends State<HomePage> {
             height: 25.0,
           ),
 
-          //Horizontal Listview for Items
+          //Horizontal Listview of coffee types
+          Container(
+            height: 50.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                CoffeeType(
+                  coffeetype: "Cuppacino",
+                  isSelected: true,
+                ),
+                CoffeeType(
+                  coffeetype: "Latte",
+                  isSelected: false,
+                ),
+                CoffeeType(
+                  coffeetype: "Black",
+                  isSelected: false,
+                ),
+              ],
+            ),
+          ),
+          //Horizontal Listview of coffee tiles
           Expanded(
-              child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: const [
-              CoffeeTiles(),
-            ],
-          ))
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: const [
+                CoffeeTiles(),
+              ],
+            ),
+          )
         ],
       ),
     );

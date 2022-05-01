@@ -57,13 +57,15 @@ class CoffeeTiles extends StatelessWidget {
                       '\$5.00',
                       style: TextStyle(fontSize: 20),
                     ),
+                    //Add Icon
                     Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                        child: const Icon(Icons.add)),
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: const Icon(Icons.add),
+                    ),
                   ],
                 ),
               )
