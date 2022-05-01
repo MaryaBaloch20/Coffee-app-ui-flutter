@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CoffeeTiles extends StatelessWidget {
-  const CoffeeTiles({Key? key}) : super(key: key);
+  final String coffeeImagePath;
+  final String coffeeName;
+  final String coffeePrice;
+  CoffeeTiles({
+    required this.coffeeImagePath,
+    required this.coffeeName,
+    required this.coffeePrice,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +17,7 @@ class CoffeeTiles extends StatelessWidget {
         padding: const EdgeInsets.only(left: 8.0, bottom: 25.0),
         child: Container(
           padding: const EdgeInsets.all(12.0),
-          width: 200,
+          width: 250,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: Colors.black54,
@@ -21,7 +28,7 @@ class CoffeeTiles extends StatelessWidget {
               //Image
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset('images/latte.jpg'),
+                child: Image.asset(coffeeImagePath),
               ),
 
               //Coffee Name
@@ -31,9 +38,9 @@ class CoffeeTiles extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Latte',
-                      style: TextStyle(fontSize: 30),
+                    Text(
+                      coffeeName,
+                      style: const TextStyle(fontSize: 30),
                     ),
                     const SizedBox(
                       height: 4,
@@ -41,7 +48,7 @@ class CoffeeTiles extends StatelessWidget {
                     Text(
                       'With Almond Milk',
                       style:
-                          TextStyle(fontSize: 15, color: Colors.grey.shade700),
+                          TextStyle(fontSize: 18, color: Colors.grey.shade700),
                     ),
                   ],
                 ),
@@ -53,9 +60,9 @@ class CoffeeTiles extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '\$5.00',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      '\$' + coffeePrice,
+                      style: const TextStyle(fontSize: 22),
                     ),
                     //Add Icon
                     Container(
